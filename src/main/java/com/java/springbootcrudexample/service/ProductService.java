@@ -31,8 +31,16 @@ public class ProductService {
         return productRepository.findById(id).orElse(null);
     }
 
+    public List<Product> getProductByIdAndName(int id,String name){
+        return productRepository.findByIdAndName(id,name);
+    }
+
     public Product getProductByName(String name) {
         return productRepository.findByName(name);
+    }
+
+    public List<Product> getQuantity(int quantity) {
+        return productRepository.findByQuantity(quantity);
     }
 
     public String deleteProduct(int id) {
@@ -51,5 +59,6 @@ public class ProductService {
         existingProduct.setPrice(product.getPrice());
         return productRepository.save(existingProduct);
     }
+
 
 }

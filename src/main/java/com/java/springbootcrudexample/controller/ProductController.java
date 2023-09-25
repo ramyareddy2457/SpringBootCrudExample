@@ -38,6 +38,17 @@ public class ProductController {
         return productService.getProductByName(name);
     }
 
+    @GetMapping("/product/idAndName")
+    public List<Product> findByIDAndName(@RequestParam int id, @RequestParam String name) {
+        return productService.getProductByIdAndName(id, name);
+    }
+
+    @GetMapping("/quantity")
+    public List<Product> findByQuantity(@RequestParam int quantity) {
+        return productService.getQuantity(quantity);
+    }
+
+
     @PutMapping("/update")
     public Product updateProduct(@RequestBody Product product) {
         return productService.updateProduct(product);
